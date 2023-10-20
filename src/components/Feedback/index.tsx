@@ -35,7 +35,7 @@ const Feedback = ({ created_at, details, id, replies }: FeedbackDetails) => {
                     details: data.details,
                     created_at: formatLongDateTimeString(new Date(data.created_at.toString())),
                     user_id: data.user_id,
-                    user_name: data.user_name
+                    user_name: data.user_name,
                 });
                 setFormatReplies(newReplies);
                 setReply("");
@@ -59,7 +59,7 @@ const Feedback = ({ created_at, details, id, replies }: FeedbackDetails) => {
                     details: re.details,
                     created_at: formatLongDateTimeString(new Date(re.created_at.toString())),
                     user_id: re.user_id,
-                    user_name: re.user_name
+                    user_name: re.user_name,
                 };
             });
             setFormatReplies(data);
@@ -72,7 +72,9 @@ const Feedback = ({ created_at, details, id, replies }: FeedbackDetails) => {
 
             <div className="feedback-card">
                 <p className="text-base font-bold">Feedback</p>
-                <p className="text-base">{details}</p>
+                {details.split("\\n").map((text) => (
+                    <p className="text-base">{text}</p>
+                ))}
                 <p className="text-gray-500 text-sm mb-6">Anonymous - {formatCreatedAt}</p>
 
                 {formatReplies && formatReplies.length ? (
@@ -83,7 +85,9 @@ const Feedback = ({ created_at, details, id, replies }: FeedbackDetails) => {
                             return (
                                 <div key={inx}>
                                     <p className="text-base">{reply.details}</p>
-                                    <p className="text-gray-500 text-sm mb-4">{reply.user_name} - {reply.created_at}</p>
+                                    <p className="text-gray-500 text-sm mb-4">
+                                        {reply.user_name} - {reply.created_at}
+                                    </p>
                                 </div>
                             );
                         })}
