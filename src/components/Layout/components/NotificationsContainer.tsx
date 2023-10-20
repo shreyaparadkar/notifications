@@ -46,7 +46,7 @@ const NotificationsContainer = ({
                         </span>
                     ) : null}
                 </div>
-                {notifications ? (
+                {notifications && notifications.length ? (
                     <>
                         <div className="min-h-fit max-h-60 overflow-auto hide-scrollbar -mx-4 shadow-inner notif-container">
                             <hr />
@@ -69,7 +69,10 @@ const NotificationsContainer = ({
                         </button>
                     </>
                 ) : (
-                    <p className="text-gray-600 text-center pt-4">No notifications found!</p>
+                    <>
+                        <hr />
+                        <p className="text-gray-600 text-center pt-4">No notifications found!</p>
+                    </>
                 )}
             </div>
         </Dialog>

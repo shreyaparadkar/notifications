@@ -7,7 +7,9 @@ import { formatLongDateTimeString } from "@/utils";
 const FeedbackCard = ({ created_at, details, id }: FeedbackOverview) => {
     return (
         <div className="feedback-card">
-            <p className="text-base"> {details} </p>
+            {details.split("\\n").map((text) => (
+                <p className="text-base">{text}</p>
+            ))}
             <p className="text-gray-500 text-sm mb-2">
                 Anonymous - {formatLongDateTimeString(new Date(created_at.toString()))}
             </p>
