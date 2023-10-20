@@ -52,7 +52,7 @@ const NotificationCard = ({
                 <Avatar color="blue" />
                 <div className="w-full">
                     <p className="text-sm">
-                        <strong>{user_name} replied</strong> {details}
+                        <strong>{user_name} replied</strong> {details.length>150? details.substring(0, 150).trimEnd()+'\u2026': details}
                     </p>
                     <div className="flex gap-3 mt-2 justify-between items-center">
                         <p className="text-xs text-gray-600">{formatDateTimeString(new Date(created_at))}</p>
