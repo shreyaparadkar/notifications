@@ -1,27 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+
+@layer base {
+    .feedback-card {
+        @apply flex flex-col gap-2 w-full p-4 rounded-md shadow-sm border-gray-100 border-solid border-2 cursor-default;
+    }
+
+    .feedback-card-btn {
+        @apply bg-sky-50 text-sky-500 hover:bg-sky-100 font-bold rounded-lg py-2 px-6 text-xs;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.notif-container hr:last-child {
+    display: none;
+}
+
+.notif {
+    width: 18rem;
+    position: fixed !important;
+    bottom: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 720px) {
+    .notif {
+        width: 22rem;
+        right: 4rem;
+    }
 }
