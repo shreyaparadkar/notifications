@@ -3,8 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
-
 @layer base {
     .feedback-card {
         @apply flex flex-col gap-2 w-full p-4 rounded-md shadow-sm border-gray-100 border-solid border-2 cursor-default;
